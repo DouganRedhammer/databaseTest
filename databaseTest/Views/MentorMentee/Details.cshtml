@@ -1,0 +1,29 @@
+﻿@model databaseTest.Models.MentorMentee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MentorMentee</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MentorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MentorId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MenteeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MenteeId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

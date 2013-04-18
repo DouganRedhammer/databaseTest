@@ -1,0 +1,29 @@
+﻿@model databaseTest.Models.MessageStorage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MessageStorage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.message)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.message)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.timeStamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.timeStamp)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

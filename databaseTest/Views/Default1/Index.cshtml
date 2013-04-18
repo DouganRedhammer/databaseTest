@@ -1,0 +1,47 @@
+﻿@model IEnumerable<databaseTest.Models.MessageStorage>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            //var bottomOfTextArea = $('#textArea');
+            $.ajax({
+                type: "GET",
+                url: "/default1/List",
+                success: function (msg) {
+                    var psconsole = $('#textArea');
+                    psconsole.text(msg);
+                    psconsole.scrollTop(
+                        psconsole[0].scrollHeight - psconsole.height()
+                        );
+                }
+            });
+        }, 5000); //5 seconds
+
+        $("#messageBtn").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/default1/Insert?msg=" + $("#messageEntry").val(),
+                success: function (msg) {
+                    //Make the ajax db query a function and place it here
+                    //$("#textArea").append(msg);
+                }
+            });
+        });  
+    });
+</script>
+<h2>Chat Foo</h2>
+
+    <div id="dynamicContent">
+          <textarea id="textArea" rows="12" cols="120"></textarea>
+        <br />
+        <input type="text" name="message"  id="messageEntry"/>
+        <input type="button" value="Send" id="messageBtn" />
+    </div>
+<h1>
+@Html.Raw(User.Identity.Name)
+</h1>
